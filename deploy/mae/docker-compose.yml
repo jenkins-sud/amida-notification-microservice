@@ -4,14 +4,7 @@ services:
   amida-api:
     build:
       context: .
-    volumes:
-      # Mounts the project directory on the host to /app inside the container,
-      # allowing you to modify the code without having to rebuild the image.
-      - .:/app
-      # Just specify a path and let the Engine create a volume.
-      # Data present in the base image at the specified mount point will be copied
-      # over to the new volume upon volume initialization.
-      # node_modules from this new volume will be used and not from your local dev env.
+    image: ${DTR_PREFIX}${DTR_ORG}/amida-notification-microservice:${SOURCE_BUILD_NUMBER}
 
     # Expose ports [HOST:CONTAINER}
     ports:
