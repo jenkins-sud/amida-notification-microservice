@@ -1,5 +1,10 @@
 version: '2'
 
+networks:
+  default:
+    external:
+      name: nextgen-svcs
+
 services:
   amida-api:
     build:
@@ -23,17 +28,3 @@ services:
       - NOTIFICATION_SERVICE_PG_PASSWORD=boilerplate
       - DEBUG=amida-api-boilerplate:*
       - NOTIFICATION_SERVICE_PORT=4001
-
-    # Link to containers in another service.
-    # Links also express dependency between services in the same way as depends_on,
-    # so they determine the order of service startup.
-    links:
-      - postgres
-
-  postgres:
-    image: "postgres:9.4.11"
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_USER=api
-      - POSTGRES_PASSWORD=boilerplate
