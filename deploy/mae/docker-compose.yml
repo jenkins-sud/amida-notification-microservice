@@ -13,7 +13,7 @@ services:
 
     # Expose ports [HOST:CONTAINER}
     ports:
-      - "4001:4001"
+      - "4001"
 
     # Set environment variables from this file
     env_file:
