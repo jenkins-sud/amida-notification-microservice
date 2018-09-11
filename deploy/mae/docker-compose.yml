@@ -6,7 +6,7 @@ networks:
       name: nextgen-svcs
 
 services:
-  amida-api:
+  amida-notification-microservice:
     build:
       context: .
     image: ${DTR_PREFIX}${DTR_ORG}/amida-notification-microservice:${SOURCE_BUILD_NUMBER}
